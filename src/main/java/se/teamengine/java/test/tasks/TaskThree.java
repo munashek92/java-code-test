@@ -7,7 +7,7 @@ import java.io.File;
 
 public class TaskThree {
 
-    // TODO Your task is to print the table of content in "example_file.pdf"
+    // TODO Your task is to print the table of content in "example_file.pdf". Your code should work for any pdf file!
     private boolean run() {
         try {
             File examplePDF = new File(System.getProperty("user.dir") + File.separator + "example_file.pdf");
