@@ -17,7 +17,6 @@ public class TaskThree {
             PDDocument doc = PDDocument.load(examplePDF);
             PDDocumentOutline outline = doc.getDocumentCatalog().getDocumentOutline();
             if (outline != null) {
-                // Step 2: Traverse the outline and print the titles of the entries
                 printTableOfContents(outline.getFirstChild(), "");
             } else {
                 System.out.println("No table of contents found in the pdf document.");
