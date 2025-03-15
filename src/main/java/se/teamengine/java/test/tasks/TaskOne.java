@@ -20,8 +20,20 @@ public class TaskOne {
     private boolean run() {
         String jsonString = "";
         // TODO keep your code changes below this comment
+        // Step 1: Create a UserSession object
+        UserSession userSession = new UserSession("tester@example.com", "s1337", new Date().getTime() + TWO_HOURS_MS - 1);
 
+        // Step 2: Convert the UserSession object to a string
+        String userSessionString = userSession.toString();
 
+        // Step 3: Generate an HMAC for the UserSession string
+        String hmac = HMacUtil.generateHMAC(userSessionString);
+
+        // Step 4: Create a TaskOneRequest object with the UserSession and the generated HMAC
+        TaskOneRequest request = new TaskOneRequest(userSession, hmac);
+
+        // Step 5: Convert the TaskOneRequest object to a JSON string
+         jsonString = gson.toJson(request);
 
         // TODO keep your code changes above this comment
         return receiver(jsonString);
