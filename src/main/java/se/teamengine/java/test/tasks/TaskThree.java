@@ -16,6 +16,7 @@ public class TaskThree {
             File examplePDF = new File(System.getProperty("user.dir") + File.separator + "example_file.pdf");
             PDDocument doc = PDDocument.load(examplePDF);
             PDDocumentOutline tableContents = doc.getDocumentCatalog().getDocumentOutline();
+
             if (tableContents != null) {
                 printTableOfContents(tableContents.getFirstChild(), "");
             } else {
@@ -31,6 +32,7 @@ public class TaskThree {
     }
 
     private void printTableOfContents(PDOutlineItem item, String indent) {
+
         while (item != null) {
             System.out.println(indent + item.getTitle());
             printTableOfContents(item.getFirstChild(), indent + "    ");
