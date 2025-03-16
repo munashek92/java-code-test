@@ -1,6 +1,8 @@
 package se.teamengine.java.test.tasks;
 
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import java.util.HashMap;
 
 public class TaskTwo {
@@ -20,7 +22,7 @@ public class TaskTwo {
         // TODO add your code below this comment
 
         String saltedPassword = username + password;
-        pwHash = org.apache.commons.codec.digest.DigestUtils.sha1Hex(saltedPassword);
+        pwHash = DigestUtils.sha1Hex(saltedPassword);
 
         // TODO add your code above this comment
         return userPasswordDatabase.get(username).equals(pwHash);
