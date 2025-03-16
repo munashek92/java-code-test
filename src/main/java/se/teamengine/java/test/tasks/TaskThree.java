@@ -1,14 +1,16 @@
 package se.teamengine.java.test.tasks;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDFormContentStream;
 import org.apache.pdfbox.pdmodel.interactive.documentnavigation.outline.PDDocumentOutline;
 import org.apache.pdfbox.pdmodel.interactive.documentnavigation.outline.PDOutlineItem;
+import se.teamengine.java.test.util.Logger;
 
 
 import java.io.File;
 
 public class TaskThree {
+
+    Logger log = new Logger();
 
     // TODO Your task is to print the table of content in "example_file.pdf". Your code should work for any pdf file!
     private boolean run() {
@@ -20,7 +22,7 @@ public class TaskThree {
             if (tableContents != null) {
                 printTableOfContents(tableContents.getFirstChild(), "");
             } else {
-                System.out.println("No table of contents found in the pdf document.");
+                log.info("No table of contents found in the pdf document.");
             }
 
             doc.close();
@@ -34,7 +36,7 @@ public class TaskThree {
     private void printTableOfContents(PDOutlineItem item, String indent) {
 
         while (item != null) {
-            System.out.println(indent + item.getTitle());
+            log.info(indent + item.getTitle());
             printTableOfContents(item.getFirstChild(), indent + "    ");
             item = item.getNextSibling();
         }
