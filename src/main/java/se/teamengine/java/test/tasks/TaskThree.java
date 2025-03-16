@@ -15,9 +15,9 @@ public class TaskThree {
         try {
             File examplePDF = new File(System.getProperty("user.dir") + File.separator + "example_file.pdf");
             PDDocument doc = PDDocument.load(examplePDF);
-            PDDocumentOutline outline = doc.getDocumentCatalog().getDocumentOutline();
-            if (outline != null) {
-                printTableOfContents(outline.getFirstChild(), "");
+            PDDocumentOutline tableContents = doc.getDocumentCatalog().getDocumentOutline();
+            if (tableContents != null) {
+                printTableOfContents(tableContents.getFirstChild(), "");
             } else {
                 System.out.println("No table of contents found in the pdf document.");
             }
